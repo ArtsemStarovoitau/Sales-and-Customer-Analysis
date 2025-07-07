@@ -12,7 +12,6 @@ import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
 public class OrderAnalytics {
 
     public Set<String> getUniqueCities(List<Order> orders) {
@@ -40,11 +39,11 @@ public class OrderAnalytics {
             return Optional.empty();
         }
         return orders.stream()
+                .filter(order -> order.getStatus() != OrderStatus.CANCELLED)
                 .flatMap(order -> order.getItems().stream())
                 .collect(Collectors.groupingBy(
                         OrderItem::getProductName,
-                        Collectors.summingInt(OrderItem::getQuantity)
-                ))
+                        Collectors.summingInt(OrderItem::getQuantity)))
                 .entrySet().stream()
                 .max(Map.Entry.comparingByValue())
                 .map(Map.Entry::getKey);
@@ -69,8 +68,7 @@ public class OrderAnalytics {
         return orders.stream()
                 .collect(Collectors.groupingBy(
                         Order::getCustomer,
-                        Collectors.counting()
-                ))
+                        Collectors.counting()))
                 .entrySet().stream()
                 .filter(entry -> entry.getValue() > minOrderCount)
                 .map(Map.Entry::getKey)
