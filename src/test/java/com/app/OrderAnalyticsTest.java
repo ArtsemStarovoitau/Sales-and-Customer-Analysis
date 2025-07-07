@@ -1,6 +1,7 @@
-package com.app.service;
+package com.app;
 
 import com.app.model.*;
+import com.app.service.OrderAnalytics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
