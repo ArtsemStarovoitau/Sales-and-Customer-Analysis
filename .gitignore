@@ -1,0 +1,42 @@
+# Gradle
+.gradle/
+build/
+out/
+.idea/                          # IntelliJ IDEA project files
+.project
+.classpath
+.settings/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar
+*.log
+*.lock
+# A common convention is to exclude all files ending with .log
+# *.log
+
+# Maven
+target/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# OS generated files
+.DS_Store
+.localized
+Thumbs.db
+Desktop.ini
+
+# Specific to your project (if any)
+# For example, if you have any local configuration files
+# config/
+# .env
+
+# Lombok generated files (if any specific ones are created outside of target/build)
+# Generally, Lombok's output is handled by the build directory exclusion.
